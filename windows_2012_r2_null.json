@@ -1,0 +1,49 @@
+{
+  "builders": [
+    {
+      "type": "null",
+      "ssh_host": "127.0.0.1",
+      "ssh_port": "2222",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "installers/BuildTools_Full.exe",
+      "destination": "C:/Windows/Temp/BuildTools_Full.exe"
+    },
+    {
+      "type": "powershell",
+      "remote_path": "/tmp/script.ps1",
+      "script": "./scripts/chocolatey.ps1"
+    },
+    {
+      "type": "shell",
+      "remote_path": "/tmp/script.bat",
+      "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
+      "scripts": [
+        "./scripts/msbuild.bat",
+        "./scripts/wix.bat",
+        "./scripts/netfx.bat",
+        "./scripts/winpcap.bat",
+        "./scripts/compact.bat"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "windows_2012_r2_{{.Provider}}_new.box",
+      "vagrantfile_template": "vagrantfile-windows_2012_r2.template"
+    }
+  ],
+  "variables": {
+    "iso_url": "./iso/win2012r2.iso",
+    "iso_checksum_type": "sha1",
+    "iso_checksum": "849734f37346385dac2c101e4aacba4626bb141c",
+    "autounattend": "./answer_files/2012_r2/Autounattend.xml"
+  }
+}
