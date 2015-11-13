@@ -52,6 +52,7 @@
         "./scripts/enable-rdp.bat",
         "./scripts/compile-dotnet-assemblies.bat",
         "./scripts/disable-auto-logon.bat"
+      ]
     },
     {
       "type": "powershell",
@@ -63,11 +64,21 @@
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
-        "./scripts/compact.bat",
         "./scripts/msbuild.bat",
         "./scripts/wix.bat",
-        "./scripts/netfx.bat",
-        "./scripts/winpcap.bat"
+        "./scripts/netfx.bat"
+      ]
+    },
+    {
+      "type": "windows-restart"
+    },
+    {
+      "type": "shell",
+      "remote_path": "/tmp/script.bat",
+      "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
+      "scripts": [
+        "./scripts/winpcap.bat",
+        "./scripts/compact.bat"
       ]
     }
   ],

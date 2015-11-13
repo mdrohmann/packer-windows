@@ -10,23 +10,10 @@
   ],
   "provisioners": [
     {
-      "type": "file",
-      "source": "installers/BuildTools_Full.exe",
-      "destination": "C:/Windows/Temp/BuildTools_Full.exe"
-    },
-    {
-      "type": "powershell",
-      "remote_path": "/tmp/script.ps1",
-      "script": "./scripts/chocolatey.ps1"
-    },
-    {
       "type": "shell",
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
-        "./scripts/msbuild.bat",
-        "./scripts/wix.bat",
-        "./scripts/netfx.bat",
         "./scripts/winpcap.bat",
         "./scripts/compact.bat"
       ]
