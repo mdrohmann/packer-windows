@@ -1,1 +1,1 @@
-choco install wixtoolset
+C:\ProgramData\chocolatey\bin\choco install -y wixtoolset
