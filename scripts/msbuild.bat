@@ -1,3 +1,1 @@
-cd C:\Windows\Temp
-
-.\BuildTools_Full.exe /q
+C:\ProgramData\chocolatey\bin\choco install -y microsoft-build-tools
