@@ -1,4 +1,4 @@
-C:\ProgramData\chocolatey\bin\choco install -y DotNet3.5
+REM C:\ProgramData\chocolatey\bin\choco install -y DotNet3.5
 C:\ProgramData\chocolatey\bin\choco install -y netfx-4.5.2-devpack
 C:\ProgramData\chocolatey\bin\choco install -y NuGet.CommandLine
 

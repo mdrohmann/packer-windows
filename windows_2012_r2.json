@@ -12,7 +12,7 @@
       "ssh_wait_timeout": "6h",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "guest_os_type": "Windows2012_64",
-      "disk_size": 61440,
+      "disk_size": 65440,
       "floppy_files": [
         "{{user `autounattend`}}",
         "./scripts/microsoft-updates.bat",
@@ -49,14 +49,13 @@
       "scripts": [
         "./scripts/vm-guest-tools.bat",
         "./scripts/vagrant-ssh.bat",
+        "./scripts/disable-auto-logon.bat",
         "./scripts/enable-rdp.bat",
-        "./scripts/compile-dotnet-assemblies.bat",
-        "./scripts/disable-auto-logon.bat"
+        "./scripts/compile-dotnet-assemblies.bat"
       ]
     },
     {
       "type": "powershell",
-      "remote_path": "/tmp/script.ps1",
       "script": "./scripts/chocolatey.ps1"
     },
     {
@@ -64,20 +63,18 @@
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
+        "./scripts/winpcap.bat",
         "./scripts/msbuild.bat",
         "./scripts/wix.bat",
         "./scripts/netfx.bat"
       ]
     },
     {
-      "type": "windows-restart"
-    },
-    {
       "type": "shell",
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
-        "./scripts/winpcap.bat",
+        "./scripts/pcapdotnet.bat",
         "./scripts/compact.bat"
       ]
     }
