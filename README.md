@@ -1,5 +1,20 @@
 # Windows Templates for Packer
 
+This is a modified version of joefitzgerald/packer-windows.
+
+It comes with pre-installed developer tools:
+
+- microsoft-build-tools
+- WinPcap
+- wixtoolset
+- dotnet 3.5 and 4.5
+
+Furthermore, the installation of updates is de-activated by default...
+
+TODO:
+
+Actually use provisioners to build these dependencies.
+
 ### Introduction
 
 This repository contains Windows templates that can be used to create boxes for Vagrant using Packer ([Website](http://www.packer.io)) ([Github](http://github.com/mitchellh/packer)).
