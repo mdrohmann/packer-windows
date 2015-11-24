@@ -38,11 +38,6 @@
   ],
   "provisioners": [
     {
-      "type": "file",
-      "source": "installers/BuildTools_Full.exe",
-      "destination": "C:/Windows/Temp/BuildTools_Full.exe"
-    },
-    {
       "type": "shell",
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
